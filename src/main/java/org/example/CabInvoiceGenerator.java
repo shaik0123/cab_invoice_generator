@@ -13,4 +13,13 @@ public class CabInvoiceGenerator {
             totalFare = MIN_FARE;
         return totalFare;
     }
+
+    public double calculateFare(Rides[] rides) {
+        double totalFare = 0.0;
+        for (Rides ride : rides)
+            totalFare = totalFare + this.CalculateFare(ride.distance, ride.time);
+
+        return totalFare;
+    }
+
 }
