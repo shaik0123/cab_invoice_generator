@@ -18,14 +18,15 @@ public class CabInvoiceTest {
         Assertions.assertEquals(5, TotalFare);
     }
 
+
     @Test
-    void given_Multiple_Rides_Should_Calculate_AggregateTotal() {
+    public void given_MultipleRide_Should_Return_Invoice_Summary(){
 
-        Rides[] rides = {new Rides(1.0, 5,PrimiumRides.Normal),
-                new Rides(0.2, 2,PrimiumRides.Normal)};
-
+        Ride[] rides = { new Ride(2.0, 5),
+                new Ride(0.1, 1)};
         CabInvoiceGenerator cabInvoiceGenerator = new CabInvoiceGenerator();
-        double totalFare = cabInvoiceGenerator.calculateFare(rides);
-        Assertions.assertEquals(20, totalFare, 0.0);
+        double fare = cabInvoiceGenerator.calculateFare(rides);
+        Assertions.assertEquals(30,fare,0.0);
+
     }
 }
