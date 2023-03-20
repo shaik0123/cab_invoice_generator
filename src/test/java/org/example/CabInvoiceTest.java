@@ -25,8 +25,9 @@ public class CabInvoiceTest {
         Ride[] rides = { new Ride(2.0, 5),
                 new Ride(0.1, 1)};
         CabInvoiceGenerator cabInvoiceGenerator = new CabInvoiceGenerator();
-        double fare = cabInvoiceGenerator.calculateFare(rides);
-        Assertions.assertEquals(30,fare,0.0);
+        InvoiceSummary summary  = cabInvoiceGenerator.calculateFare(rides);
+        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 30.0);
+        Assertions.assertEquals(expectedInvoiceSummary, summary);
 
     }
 }
